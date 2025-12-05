@@ -6,8 +6,8 @@ from openai import OpenAI
 
 # Get API key from env or ask the user
 api_key = os.getenv("OPENAI_API_KEY")
-if not api_key:
-    api_key = input("Enter your OpenAI API key (it will not be saved): ").strip()
+#if not api_key:
+  #  api_key = input("Enter your OpenAI API key (it will not be saved): ").strip()
 
 client = OpenAI(api_key=api_key)
 
