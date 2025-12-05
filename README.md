@@ -80,4 +80,18 @@ sequenceDiagram
     L-->>S: Incident analysis (summary, root cause, actions)
     S-->>U: Render results in UI (highlighted)
 ```
+**Description**
+* **User Interface (Browser):**
+The user pastes or uploads log files in the Streamlit web UI.
+* **Application Layer (Streamlit Backend):**
+The Python backend receives the logs, applies prompt logic based on selected incident type and severity, and formats the request for the LLM.
+* **LLM Integration (OpenAI API):**
+Logs and context are sent via HTTPS using the OpenAI SDK. The model (gpt-4o-mini) processes the incident and returns structured insights (summary, root cause, actions).
+* **Response Rendering (Browser):**
+The application renders highlighted, formatted output in real-time.
 
+**Data Handling**
+* Logs exist only in memory for the duration of a session.
+* The application does not write any log files to disk or database.
+* No user data is persisted.
+* Each analysis request is stateless.
